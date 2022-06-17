@@ -1,0 +1,103 @@
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+//reset de base a faire avant chaque site
+*,
+::before,
+::after {
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $colorMain;//couleur du fond principale
+    font-family: 'Lato', sans-serif;//police d'écriture
+}
+
+header {
+    nav {
+        list-style-type: none;//enleve les points de liste de base
+        width: 8%; // de ma page
+        height: 100%; //toute ma page de haut en bas
+        background-color: $colorMain;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;//ombrage
+        position: fixed;//ne bouge pas quand on scroll
+        z-index: 9999;//superposition des éléments
+        padding: 0 10px;
+        display: block;
+        text-align: center;//texte au centre
+        // align-items: center;
+        // justify-content: space-between;
+
+        //mon nom en haut a gauche
+        .logo {
+            text-transform: uppercase;//majuscule
+            font-weight: 600; //epaisseur d'ecriture
+        }
+        ul {
+            flex-direction: column;//mettre le text dans ma navBar en colonne
+            list-style: none;//enleve les points des liste d'origine
+            vertical-align: middle;
+            // display: flex;
+            // flex-wrap: wrap;
+            li {
+                margin: 0 10px;
+                a {
+                    text-decoration: none;//enleve le soulignement
+                    color: $colorAlt;//couleur du texte de mes liens
+                }
+            }
+        }
+    }
+}
+
+main {
+    .banner {
+        background: url(img/minecraftwallpaper.jpg);//image de banniere
+        background-position: center;//centrer mon image
+        height: 500px;//hauteur sur laquel est mon image
+        background-size: cover;//couvre tout lespace que je lui ai donné
+    }
+    .partA {
+        height: 400px;
+        width: 70%;
+        text-align: justify;//pour que mes lignes de textes aies la meme largeur
+        margin: 50px auto;
+        .h3 {
+            margin-bottom: 100px;
+        }
+    }
+    .parallax {
+        width: 100%;
+        height: 300px;
+        background: url(img/rivenwallpaper.jpg);//image de fond du reste du site
+        background-size: cover;//couvre la taille que je lui donne
+        background-attachment: fixed;//ne bouge pas quand je scroll
+    }
+    //dupliquer ma classe partA pour ne pas la réecrire
+    .partB{
+        @extend .partA;
+    }
+
+}
+footer{
+    height: 50px;
+    width: 100%;
+    background-color: $colorMain;//couleur de fond de mon footer
+    color: $colorAlt;//couleur du texte
+    text-align: center;//texte centre au milieu
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;//ombrage
+    display: flex;//permet de donner des propriétes pour deplacer comme je veux
+    justify-content: center;
+    align-items: center;
+}
+// @media screen and(max-width:500) {
+//     nav{
+//         justify-content: center;
+//     }
+//     .logo{
+//         display: none;
+//     }
+// } 
+
