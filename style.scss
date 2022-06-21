@@ -10,56 +10,181 @@
     box-sizing: border-box;
 }
 
+
+
 body {
-    background-color: $colorMain;//couleur du fond principale
+    background-color: $colorGreen1;
+    // background-color: $colorMain;//couleur du fond principale
     font-family: 'Lato', sans-serif;//police d'écriture
+    // overflow-x: hidden;
+    
 }
 
 header {
     nav {
-        list-style-type: none;//enleve les points de liste de base
-        width: 8%; // de ma page
-        height: 100%; //toute ma page de haut en bas
-        background-color: $colorMain;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;//ombrage
+        width: 5%; // de ma page
+        height: 80%; //toute ma page de haut en bas
+        // background-color: $colorMain;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0));
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.633) 0px 8px 16px -8px;//ombrage
         position: fixed;//ne bouge pas quand on scroll
         z-index: 9999;//superposition des éléments
-        padding: 0 10px;
-        display: block;
+        padding: 0px 10px;
+        margin-top: 5%;
+        display: flex;
         text-align: center;//texte au centre
+        flex-direction: column;
+        justify-content: space-between;
         // align-items: center;
         // justify-content: space-between;
-
         //mon nom en haut a gauche
+        z-index: 1;
         .logo {
             text-transform: uppercase;//majuscule
             font-weight: 600; //epaisseur d'ecriture
+            flex-grow: 2;
+            padding-top: 20%;
+            text-shadow: rgba(0, 0, 0, 0.313) 0.1em 0.1em 0.2em
         }
+       
         ul {
-            flex-direction: column;//mettre le text dans ma navBar en colonne
+            flex-grow: 3;
             list-style: none;//enleve les points des liste d'origine
-            vertical-align: middle;
+            // vertical-align: middle;
             // display: flex;
             // flex-wrap: wrap;
             li {
-                margin: 0 10px;
+                font-size: 1rem;
+                padding-top: 50%;
+                // margin: 0 10px;
+                nav ul li a,
+                nav ul li a:after,
+                nav ul li a:before {
+                        transition: all .5s;
+                }
                 a {
+                    
                     text-decoration: none;//enleve le soulignement
-                    color: $colorAlt;//couleur du texte de mes liens
+                    color: $colorGreen1;//couleur du texte de mes liens
+                    text-transform: uppercase;//majuscule
+                    font-weight: 800;
+                    text-shadow: rgba(0, 0, 0, 0.129) 0.1em 0.1em 0.2em
+                }
+                a:hover{
+                    background-color: $colorBlack1;
+                    box-shadow: rgba(0, 0, 0, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.576) 0px 8px 16px -8px;
+
+                    // padding: 1rem;
+                    color: white;
+                   
                 }
             }
         }
     }
+   
+    
 }
 
+
+
 main {
+    font-size: 1.5rem;
+    color: $colorBlack1;
+    // div{
+    // }
+    h2{
+        text-align: center;
+        color: $colorMain;
+    }
+
     .banner {
+        
         background: url(img/minecraftwallpaper.jpg);//image de banniere
         background-position: center;//centrer mon image
         height: 500px;//hauteur sur laquel est mon image
         background-size: cover;//couvre tout lespace que je lui ai donné
+        .menu{
+            width: 100%;
+            height: 5%;
+            background-image: linear-gradient(to left,rgba(255, 255, 255, 0.645), rgba(200, 20, 20, 0));
+            list-style: none;
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            li{
+                list-style: none;
+                display: inline-block;
+            
+            .a{
+                display: flex;
+                justify-content: space-between;
+                
+                
+            }
+        }}
+        
+        
+        .slide-effect {
+            .text, .slideDown, .slideUp {
+                // border: 2px solid black;//demander a Sébastien pk jai un problme de taille de box ???
+                // position: relative;
+                // font-size: 35px;
+                //      //pour me reperer facilement
+                width: 30%; //largeur
+                display: block;
+                color: #fff;//couleur texte
+                font-weight: 400; //eppaisseur
+                font-size: 6.3rem; //taille de police
+                line-height: 5.75rem;//ecart entre mes lignes de text
+                margin-left: 6%;//decale vers la droite mon h1
+                opacity:0;
+                text-shadow: rgba(0, 0, 0, 0.313) 0.1em 0.1em 0.2em
+                // position: sticky;
+                // top: 20px;
+                
+              }
+              
+              .text {
+                padding-top: 6%;
+                // margin-top: 10%;
+                margin-bottom: -2.5%;  
+                // top:40px;
+                font-weight: bold;
+                animation: slideUp ease .4s forwards;
+              }
+              
+              .slideDown {
+                // top:-40px;
+                // padding-top: 1%;
+                left:5px;
+                animation: slideDown ease .4s forwards .6s;
+                margin-bottom: 2.8%;
+              }
+              
+              .slideUp {
+                // margin-bottom: 60%;
+                top:40px;
+                left:10px;
+                animation: slideUp ease .5s forwards 1.2s;
+                @keyframes slideUp {
+                    0% {transform: translateY(0);}
+                    100% {transform: translateY(-10px);opacity:1;}
+                  }
+                  
+                  @keyframes slideDown {
+                    0% {transform: translateY(0);}
+                    100% {transform: translateY(40px);opacity:1;}
+                  }
+              }
+          }
+          
     }
+
+    
+
     .partA {
+        // color: red;
         height: 400px;
         width: 70%;
         text-align: justify;//pour que mes lignes de textes aies la meme largeur
@@ -74,10 +199,35 @@ main {
         background: url(img/rivenwallpaper.jpg);//image de fond du reste du site
         background-size: cover;//couvre la taille que je lui donne
         background-attachment: fixed;//ne bouge pas quand je scroll
+        text-shadow: rgba(0, 0, 0, 0.313) 0.1em 0.1em 0.2em
+    }
+    .moving-txt{
+        // color: white;
+        color: $colorAlt;
+        font-weight: 400; //eppaisseur
+        font-size: 4.3rem; //taille de police
+        line-height: 5.75rem;//ecart entre mes lignes de text
+        // margin-left: 6%;//decale vers la droite mon h1
+        // display: flex;
+        text-align: center;//texte au centre
+        text-shadow: rgba(0, 0, 0, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.576) 0px 8px 16px -8px;
+
     }
     //dupliquer ma classe partA pour ne pas la réecrire
     .partB{
         @extend .partA;
+        // color: green;
+    }
+    
+    .partC{
+        @extend.partB
+    }
+    .final-txt{
+        height: 400px;
+        width: 70%;
+        text-align: justify;//pour que mes lignes de textes aies la meme largeur
+        margin: 50px auto;
+       
     }
 
 }
@@ -87,17 +237,9 @@ footer{
     background-color: $colorMain;//couleur de fond de mon footer
     color: $colorAlt;//couleur du texte
     text-align: center;//texte centre au milieu
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;//ombrage
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.887) 0px 8px 16px -8px;//ombrage
     display: flex;//permet de donner des propriétes pour deplacer comme je veux
     justify-content: center;
     align-items: center;
 }
-// @media screen and(max-width:500) {
-//     nav{
-//         justify-content: center;
-//     }
-//     .logo{
-//         display: none;
-//     }
-// } 
 
